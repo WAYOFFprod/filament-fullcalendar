@@ -25,18 +25,29 @@
 
 # Table of contents
 
--   [Installation](#installation)
--   [Usage](#usage)
--   [Configuration](#configuration)
--   [Styling](#styling)
--   [Listening for events](#listening-for-events)
--   [Creating and Editing events with modals.](#creating-and-editing-events-with-modals)
-    -   [Creating Events](#creating-events)
-    -   [Editing Events](#editing-events)
-    -   [Authorizing actions](#authorizing-actions)
-    -   [Listening for cancelled modal](#listening-for-cancelled-modal)
--   [Refreshing calendar events](#refreshing-calendar-events)
--   [Filtering events based on the calendar view](#filtering-events-based-on-the-calendar-view)
+- [The Most Popular JavaScript Calendar as a Filament Widget 💛](#the-most-popular-javascript-calendar-as-a-filament-widget-)
+- [Features](#features)
+  - [Support Filament](#support-filament)
+- [Table of contents](#table-of-contents)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+    - [Plugins](#plugins)
+- [Styling](#styling)
+- [Listening for events](#listening-for-events)
+- [Creating and Editing events with modals.](#creating-and-editing-events-with-modals)
+  - [Creating Events](#creating-events)
+  - [Editing Events](#editing-events)
+  - [Authorizing actions](#authorizing-actions)
+  - [Listening for cancelled modal](#listening-for-cancelled-modal)
+- [Refreshing calendar events](#refreshing-calendar-events)
+- [Filtering events based on the calendar view](#filtering-events-based-on-the-calendar-view)
+  - [Testing](#testing)
+  - [Changelog](#changelog)
+  - [Contributing](#contributing)
+  - [Security Vulnerabilities](#security-vulnerabilities)
+  - [Credits](#credits)
+  - [License](#license)
 
 <br>
 
@@ -47,6 +58,8 @@ You can install the package via composer:
 ```bash
 composer require saade/filament-fullcalendar
 ```
+
+
 
 You can publish the config file with:
 
