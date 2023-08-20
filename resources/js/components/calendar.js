@@ -83,6 +83,12 @@ export default (Alpine) => {
                                 )
                             },
                         }),
+                        eventContent: function (info) {
+                            console.log(info.event.extendedProps.preview)
+                            return {
+                                html: info.event.extendedProps.preview,
+                            }
+                        },
                     })
 
                     this.calendar.render()
