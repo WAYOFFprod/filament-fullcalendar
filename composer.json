@@ -20,7 +20,7 @@
         "filament/filament": "^3.0",
         "illuminate/contracts": "^9.0|^10.0",
         "livewire/livewire": "^3.0@beta",
-        "spatie/laravel-package-tools": "^1.11"
+        "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
         "nunomaduro/collision": "^6.0|^7.0",
