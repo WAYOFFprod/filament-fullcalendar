@@ -6,7 +6,7 @@ use Filament\PluginServiceProvider;
 use Saade\FilamentFullCalendar\Commands\UpgradeFilamentFullCalendarCommand;
 use Spatie\LaravelPackageTools\Package;
 
-class FilamentFullCalendarServiceProvider extends PluginServiceProvider
+class FilamentFullCalendarServiceProvider extends Saade\FilamentFullCalendar\PluginServiceProvider
 {
     protected array $beforeCoreScripts = [
         'filament-fullcalendar-scripts' => __DIR__ . '/../dist/filament-fullcalendar.js',
