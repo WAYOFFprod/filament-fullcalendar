@@ -22,7 +22,7 @@ class FilamentFullCalendarServiceProvider extends ServiceProvider
         $package
             ->name('filament-fullcalendar')
             ->hasConfigFile()
-            ->hasViews()
+            ->hasViews('filament-fullcalendar')
             ->hasCommand(UpgradeFilamentFullCalendarCommand::class);
     }
 }
