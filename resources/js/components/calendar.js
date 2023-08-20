@@ -58,6 +58,8 @@ export default (Alpine) => {
                         eventResize: handleEventResizeUsing,
                         dateClick: handleDateClickUsing,
                         select: handleSelectUsing,
+                        initialView: initialView,
+                        initialDate: initialDate,
                         eventSources: [{ events }, fetchEventsUsing],
                         ...(shouldSaveState && {
                             initialView:
@@ -84,7 +86,6 @@ export default (Alpine) => {
                             },
                         }),
                         eventContent: function (info) {
-                            console.log(info.event.extendedProps.preview)
                             return {
                                 html: info.event.extendedProps.preview,
                             }
