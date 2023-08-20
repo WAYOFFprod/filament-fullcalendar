@@ -47,3 +47,7 @@
 .dark .filament-fullcalendar--calendar.fc .fc-daygrid-day.fc-day-today {
     @apply bg-primary-900;
 }
+
+.fc-scrollgrid .fc-scrollgrid-liquid {
+    @apply w-full;
+}

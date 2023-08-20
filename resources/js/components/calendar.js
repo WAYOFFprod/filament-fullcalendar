@@ -37,11 +37,17 @@ export default (Alpine) => {
                         ...config,
                         plugins: [
                             ...(config.plugins.dayGrid ? [dayGridPlugin] : []),
-                            ...(config.plugins.timeGrid ? [timeGridPlugin] : []),
-                            ...(config.plugins.interaction ? [interactionPlugin] : []),
+                            ...(config.plugins.timeGrid
+                                ? [timeGridPlugin]
+                                : []),
+                            ...(config.plugins.interaction
+                                ? [interactionPlugin]
+                                : []),
                             ...(config.plugins.list ? [listPlugin] : []),
                             ...(config.plugins.rrule ? [rrulePlugin] : []),
-                            ...(config.plugins.resourceTimeline ? [resourceTimelinePlugin] : []),
+                            ...(config.plugins.resourceTimeline
+                                ? [resourceTimelinePlugin]
+                                : []),
                             momentPlugin,
                             momentTimezonePlugin,
                         ],
