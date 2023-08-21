@@ -6,8 +6,9 @@ use Filament\PluginServiceProvider;
 use Illuminate\Support\ServiceProvider;
 use Saade\FilamentFullCalendar\Commands\UpgradeFilamentFullCalendarCommand;
 use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class FilamentFullCalendarServiceProvider extends ServiceProvider
+class FilamentFullCalendarServiceProvider extends PackageServiceProvider
 {
     protected array $beforeCoreScripts = [
         'filament-fullcalendar-scripts' => __DIR__ . '/../dist/filament-fullcalendar.js',
@@ -22,7 +23,7 @@ class FilamentFullCalendarServiceProvider extends ServiceProvider
         $package
             ->name('filament-fullcalendar')
             ->hasConfigFile()
-            ->hasViews('filament-fullcalendar')
+            ->hasViews()
             ->hasCommand(UpgradeFilamentFullCalendarCommand::class);
     }
 }

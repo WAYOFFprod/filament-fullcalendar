@@ -42,20 +42,20 @@ trait CanManageEvents
 
     protected function getForms(): array
     {
-        return array_merge(
-            $this->getCreateEventForm(),
-            $this->getEditEventForm()
-        );
+        return [
+            'createEventForm',
+            'editEventForm'
+        ];
     }
 
     public function onEventClick($event): void
     {
-        if (! static::canView($event)) {
+        if (!static::canView($event)) {
             return;
         }
 
         $this->editEventForm
-            ->disabled(! static::canEdit($event))
+            ->disabled(!static::canEdit($event))
             ->fill($event);
 
         if (method_exists($this, 'resolveEventRecord')) {
@@ -69,7 +69,7 @@ trait CanManageEvents
 
     public function onCreateEventClick(array $date): void
     {
-        if (! static::canCreate()) {
+        if (!static::canCreate()) {
             return;
         }
 

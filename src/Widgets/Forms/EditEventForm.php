@@ -3,6 +3,7 @@
 namespace Saade\FilamentFullCalendar\Widgets\Forms;
 
 use Filament\Forms;
+use Filament\Forms\Form;
 
 trait EditEventForm
 {
@@ -32,13 +33,11 @@ trait EditEventForm
         ];
     }
 
-    protected function getEditEventForm(): array
+    protected function editEventForm(Form $form): Form
     {
-        return [
-            'editEventForm' => $this->makeForm()
-                ->schema(static::getEditEventFormSchema())
-                ->statePath('editEventFormState'),
-        ];
+        return $form
+            ->schema(static::getEditEventFormSchema())
+            ->statePath('editEventFormState');
     }
 
     public function getEditEventModalTitle(): string

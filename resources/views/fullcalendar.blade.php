@@ -1,6 +1,6 @@
 @php($locale = strtolower(str_replace('_', '-', $this->config('locale', config('app.locale')))))
 
-<x-filament-widgets::widget>
+<x-filament::widget>
     <x-filament::card>
         <div
             wire:ignore
@@ -81,4 +81,4 @@
     @if($this::canView())
         <x:filament-fullcalendar::edit-event-modal />
     @endif
-</x-filament-widgets::widget>
+</x-filament::widget>

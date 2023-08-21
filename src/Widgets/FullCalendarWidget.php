@@ -5,7 +5,7 @@ namespace Saade\FilamentFullCalendar\Widgets;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Widgets\Widget;
-use Illuminate\View\View;
+use Illuminate\Contracts\View\View;
 use Saade\FilamentFullCalendar\Widgets\Concerns\CanFetchEvents;
 use Saade\FilamentFullCalendar\Widgets\Concerns\CanManageEvents;
 use Saade\FilamentFullCalendar\Widgets\Concerns\CanRefreshEvents;

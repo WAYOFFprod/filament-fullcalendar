@@ -2,7 +2,9 @@
 
 namespace Saade\FilamentFullCalendar\Widgets\Forms;
 
-use Filament\Forms;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Form;
 
 trait CreateEventForm
 {
@@ -23,22 +25,20 @@ trait CreateEventForm
     protected static function getCreateEventFormSchema(): array
     {
         return [
-            Forms\Components\TextInput::make('title')
+            TextInput::make('title')
                 ->required(),
-            Forms\Components\DatePicker::make('start')
+            DatePicker::make('start')
                 ->required(),
-            Forms\Components\DatePicker::make('end')
+            DatePicker::make('end')
                 ->default(null),
         ];
     }
 
-    protected function getCreateEventForm(): array
+    public function createEventForm(Form $form): Form
     {
-        return [
-            'createEventForm' => $this->makeForm()
-                ->schema(static::getCreateEventFormSchema())
-                ->statePath('createEventFormState'),
-        ];
+        return $form
+            ->schema(static::getCreateEventFormSchema())
+            ->statePath('createEventFormState');
     }
 
     public function getCreateEventModalTitle(): string
