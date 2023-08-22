@@ -26,6 +26,7 @@ class FullCalendarWidget extends Widget implements HasForms
 
     protected int | string | array $columnSpan = 'full';
 
+    // public $instanceConfig = "this";
     public function mount(): void
     {
         $this->setUpForms();
@@ -33,11 +34,11 @@ class FullCalendarWidget extends Widget implements HasForms
 
     public function render(): View
     {
+        // $this->instanceConfig = $this->getInstanceConfig()
+        // dd($this->getInstanceConfig());
         return view(static::$view)
-            ->with([
-                'events' => $this->getViewData(),
-                'instanceConfig' => $this->getInstanceConfig(),
-            ]);
+            ->with('events', $this->getViewData())
+            ->with('instanceConfig', $this->getInstanceConfig());
     }
 
     public function getKey(): string

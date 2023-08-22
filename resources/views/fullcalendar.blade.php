@@ -2,6 +2,7 @@
 
 <x-filament::widget>
     <x-filament::card>
+        {{-- {{dd($this)}} --}}
         <div
             wire:ignore
             x-ref="calendar"
@@ -10,8 +11,8 @@
                 config: {{ json_encode($this->getConfig(), JSON_PRETTY_PRINT) }},
                 locale: '{{ $locale }}',
                 events: {{ json_encode($events) }},
-                initialView: @js($this->config('initialView')),
-                initialDate: @js($this->config('initialDate')),
+                initialView: @js($instanceConfig['initialView']),
+                initialDate: @js($instanceConfig['initialDate']),
                 shouldSaveState: @js($this->config('saveState', false)),
                 handleEventClickUsing: async ({ event, jsEvent }) => {
                     if( event.url ) {
@@ -74,11 +75,11 @@
         ></div>
     </x-filament::card>
 
-    @if($this::canCreate())
+    {{-- @if($this::canCreate())
         <x:filament-fullcalendar::create-event-modal />
     @endif
 
     @if($this::canView())
         <x:filament-fullcalendar::edit-event-modal />
-    @endif
+    @endif --}}
 </x-filament::widget>
