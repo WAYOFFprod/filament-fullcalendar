@@ -2,6 +2,7 @@
 
 namespace Saade\FilamentFullCalendar\Widgets\Forms;
 
+use Filament\Actions\Action;
 use Filament\Forms;
 use Filament\Forms\Form;
 
@@ -9,11 +10,17 @@ trait EditEventForm
 {
     public $editEventFormState = [];
 
-    public function onEditEventSubmit(): void
-    {
-        $this->editEvent($this->editEventForm->getState());
 
-        $this->dispatchBrowserEvent('close-modal', ['id' => 'fullcalendar--edit-event-modal']);
+    public function submitEditForm(): Action
+    {
+        return Action::make('submitEditForm')
+            ->label($this->getModalSubmitLabel())
+            ->icon('heroicon-m-pencil-square')
+            ->button()
+            ->action(function (): void {
+                $this->createEvent($this->createEventForm->getState());
+                $this->dispatch('close-modal', id: 'fullcalendar--edit-event-modal');
+            });
     }
 
     public function editEvent(array $data): void

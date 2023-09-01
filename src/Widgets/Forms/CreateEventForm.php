@@ -2,19 +2,27 @@
 
 namespace Saade\FilamentFullCalendar\Widgets\Forms;
 
+use Filament\Actions\Action;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Form;
+use Filament\Support\Enums\Alignment;
 
 trait CreateEventForm
 {
     public $createEventFormState = [];
 
-    public function onCreateEventSubmit()
+    public function submitCreateForm(): Action
     {
-        $this->createEvent($this->createEventForm->getState());
-
-        $this->dispatchBrowserEvent('close-modal', ['id' => 'fullcalendar--create-event-modal']);
+        return Action::make('submitCreateForm')
+            ->label($this->getModalSubmitLabel())
+            ->icon('heroicon-m-plus-circle')
+            ->button()
+            ->action(function (): void {
+                $this->createEvent($this->createEventForm->getState());
+                $this->dispatch('close-modal', id: 'fullcalendar--create-event-modal');
+            });
     }
 
     public function createEvent(array $data): void
@@ -27,10 +35,12 @@ trait CreateEventForm
         return [
             TextInput::make('title')
                 ->required(),
-            DatePicker::make('start')
-                ->required(),
-            DatePicker::make('end')
-                ->default(null),
+            Fieldset::make('dates')->schema([
+                DatePicker::make('start')
+                    ->required(),
+                DatePicker::make('end')
+                    ->default(null),
+            ])
         ];
     }
 

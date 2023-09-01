@@ -2,6 +2,11 @@
 
 namespace Saade\FilamentFullCalendar\Widgets;
 
+use Filament\Actions\Action;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Widgets\Widget;
@@ -12,11 +17,9 @@ use Saade\FilamentFullCalendar\Widgets\Concerns\CanRefreshEvents;
 use Saade\FilamentFullCalendar\Widgets\Concerns\FiresEvents;
 use Saade\FilamentFullCalendar\Widgets\Concerns\UsesConfig;
 
-class FullCalendarWidget extends Widget implements HasForms
+class FullCalendarWidget extends Widget implements HasForms, HasActions
 {
-    use InteractsWithForms, CanManageEvents {
-        CanManageEvents::getForms insteadof InteractsWithForms;
-    }
+    use InteractsWithForms, CanManageEvents, InteractsWithActions;
     use CanRefreshEvents;
     use CanFetchEvents;
     use FiresEvents;
@@ -32,6 +35,14 @@ class FullCalendarWidget extends Widget implements HasForms
         $this->setUpForms();
     }
 
+    protected function getForms(): array
+    {
+        return [
+            'createEventForm',
+            'editEventForm'
+        ];
+    }
+
     public function render(): View
     {
         // $this->instanceConfig = $this->getInstanceConfig()
@@ -45,4 +56,39 @@ class FullCalendarWidget extends Widget implements HasForms
     {
         return $this->key ?? 'default';
     }
+
+    public function openCreateForm(): Action
+    {
+        return Action::make('openCreateForm')
+            ->icon('heroicon-m-pencil-square')
+            ->button()
+            ->form($this->getCreateEventFormSchema())
+            ->action(function (array $data): void {
+                dd($data);
+            });
+    }
+
+    public function openEditForm(): Action
+    {
+        return Action::make('openEditForm')
+            ->icon('heroicon-m-pencil-square')
+            ->button()
+            ->form($this->getEditEventFormSchema())
+            ->action(function (array $data): void {
+                dd($data);
+            });
+    }
+
+    // public function openCreateForm(): Action
+    // {
+    //     return Action::make('otherForm')
+    //         ->icon('heroicon-m-pencil-square')
+    //         ->button()
+    //         ->form(
+    //             $this->getCreateEventFormSchema()
+    //         )
+    //         ->action(function (array $data): void {
+    //             dd("Action triggered");
+    //         });
+    // }
 }

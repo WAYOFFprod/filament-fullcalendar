@@ -8,11 +8,18 @@ trait CanManageModals
 
     protected string $modalWidth = 'sm';
 
+    protected string $modalSubmitLabel = "Create";
+
     protected bool $modalSlideover = false;
 
     protected function getModalLabel(): string
     {
         return $this->modalLabel;
+    }
+
+    protected function getModalSubmitLabel(): string
+    {
+        return $this->modalSubmitLabel;
     }
 
     protected function getModalWidth(): string
@@ -23,15 +30,5 @@ trait CanManageModals
     protected function getModalSlideover(): bool
     {
         return $this->modalSlideover;
-    }
-
-    public function isListeningCancelledEditModal(): bool
-    {
-        return in_array('cancelledFullcalendarEditEventModal', $this->getEventsBeingListenedFor());
-    }
-
-    public function isListeningCancelledCreateModal(): bool
-    {
-        return in_array('cancelledFullcalendarCreateEventModal', $this->getEventsBeingListenedFor());
     }
 }

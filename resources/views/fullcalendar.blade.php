@@ -36,6 +36,7 @@
                     @endif
                 },
                 handleDateClickUsing: async ({ date, allDay }) => {
+                    console.log('what')
                     @if($this::canCreate())
                         $wire.onCreateEventClick({ date, allDay })
                     @endif
@@ -75,11 +76,12 @@
         ></div>
     </x-filament::card>
 
-    {{-- @if($this::canCreate())
+
+    @if($this::canCreate())
         <x:filament-fullcalendar::create-event-modal />
     @endif
 
     @if($this::canView())
         <x:filament-fullcalendar::edit-event-modal />
-    @endif --}}
+    @endif
 </x-filament::widget>
