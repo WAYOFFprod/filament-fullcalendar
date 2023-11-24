@@ -5,9 +5,4 @@
         </x-filament::modal.heading>
     </x-slot>
     {{ $this->createEventForm }}
-    <x-slot name="footer">
-        <div class="flex justify-end">
-            {{$this->submitCreateForm}}
-        </div>
-    </x-slot>
 </x-filament::modal>
