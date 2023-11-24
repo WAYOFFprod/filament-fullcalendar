@@ -13,16 +13,10 @@ trait CreateEventForm
 {
     public $createEventFormState = [];
 
-    public function submitCreateForm(): Action
+    public function create()
     {
-        return Action::make('submitCreateForm')
-            ->label($this->getModalSubmitLabel())
-            ->icon('heroicon-m-plus-circle')
-            ->button()
-            ->action(function (): void {
-                $this->createEvent($this->createEventForm->getState());
-                $this->dispatch('close-modal', id: 'fullcalendar--create-event-modal');
-            });
+        $this->createEvent($this->createEventForm->getState());
+        $this->dispatch('close-modal', id: 'fullcalendar--create-event-modal');
     }
 
     public function createEvent(array $data): void

@@ -4,5 +4,7 @@
             {{ $this->getCreateEventModalTitle() }}
         </x-filament::modal.heading>
     </x-slot>
-    {{ $this->createEventForm }}
+    <form wire:submit="create">
+        {{ $this->createEventForm }}
+    </form>
 </x-filament::modal>
