@@ -51,7 +51,3 @@
 .fc-scrollgrid .fc-scrollgrid-liquid {
     @apply w-full;
 }
-
-.fc-h-event {
-    @apply border-none;
-}
