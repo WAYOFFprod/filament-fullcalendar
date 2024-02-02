@@ -36,7 +36,6 @@
                     @endif
                 },
                 handleDateClickUsing: async ({ date, allDay }) => {
-                    console.log('what')
                     @if($this::canCreate())
                         $wire.onCreateEventClick({ date, allDay })
                     @endif
