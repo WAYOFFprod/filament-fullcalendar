@@ -1,5 +1,10 @@
 @tailwind utilities;
 
+
+.fc-h-event {
+    @apply border-none;
+}
+
 .fc-toolbar-chunk {
     @apply space-y-1;
 }
@@ -50,8 +55,4 @@
 
 .fc-scrollgrid .fc-scrollgrid-liquid {
     @apply w-full;
-}
-
-.fc-h-event {
-    @apply border-none;
 }
