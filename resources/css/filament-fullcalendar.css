@@ -1,12 +1,11 @@
 @tailwind utilities;
 
-
 .fc-h-event {
-    @apply border-none;
+    @apply !border-none h-auto;
 }
 
 .fc-toolbar-chunk {
-    @apply space-y-1;
+    @apply space-y-1 space-x-1;
 }
 
 .fc-toolbar-title {
